@@ -1,0 +1,88 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+import com.BridgeLabz.utility.Utility;
+
+public class HashingFunction {
+	
+	//static Util table[] = new Util[11];
+	public static void main(String[] args) throws Exception{
+		// TODO Auto-generated method stub
+		
+		int size;
+		System.out.println("Enter the size of hash table");
+		size = Util.readInt();
+		Utility table[] = new Utility[size];
+		
+	
+		
+		
+		
+		String path = "/home/user/eclipse-workspace/com.BridgeLabz/src/com/BridgeLabz/DataStructurePrograms/sourabh.txt";
+		String []content_of_file = Util.readFile(path);
+		for (int j = 0; j < content_of_file.length; j++) {
+			HashingFunction.addToHashTable(table,Integer.parseInt(content_of_file[j]));
+		}
+		System.out.println("Enetr number to be searched");
+		String searchkey = Util.readString();
+		if(Util.search(searchkey)==true)
+		{
+			int position=Util.index(searchkey);
+			Util.pop(position);
+		}
+		else
+		{
+			Util.addUnordered(searchkey);
+		}
+		
+		
+		Util.display();
+		Util.writeIntoFile(path);
+		
+	}
+	
+	
+
+	public static void addToHashTable(Util table[],int item)
+	{
+		int poped_item,slot = item%11;
+		
+		
+			if(table[slot].search(item))
+			{
+				poped_item=(int) table[slot].pop(Util.index(item));
+				System.out.println(poped_item+" is poped");
+			}
+			else
+			{
+				poped_item=item;
+				table[slot].addUnordered(item);
+				System.out.println(poped_item+" is pushed");
+			}
+			System.out.println((int)((Util.index(item))));
+	}
+	public static int getitem(Util table[],int item)
+	{
+		int poped_item=0,choice,slot = item%11;
+		if(table[slot].isEmpty())
+		{
+			System.out.println("Slot is empty");
+		}
+		else
+		{
+			if(table[slot].search(item))
+			{
+				System.out.println(item+" is present");
+				System.out.println("Enter your choice\n1)Push item\n2)Pop item");
+				choice = Util.readInt();
+				switch(choice)
+				{
+				case 1 : table[slot].push(item);break;
+				case 2 : poped_item=(int) table[slot].pop(Util.index(item));break;
+				}
+			}
+		}
+		return poped_item;
+	}
+
+}

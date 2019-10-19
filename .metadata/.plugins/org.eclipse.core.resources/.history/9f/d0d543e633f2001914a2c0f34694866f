@@ -1,0 +1,15 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+
+public class PrimeRangeAnagram2D {
+
+	public static void main(String[] args) {
+		int array[][] = new int[10][167];
+		int prime_numbers[]=Util.primecheck();
+		int range[]= {0,100,200,300,400,500,600,700,800,900,1000};
+		Util.isPrimeAnagram(arr);
+		Util.Node head= null;
+	}
+
+}

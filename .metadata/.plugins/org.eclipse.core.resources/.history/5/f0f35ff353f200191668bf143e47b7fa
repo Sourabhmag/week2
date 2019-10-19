@@ -1,0 +1,28 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import java.util.Arrays;
+
+import com.BridgeLabz.utility.Util;
+
+public class PrimeRangeAnagram2D {
+
+	public static void main(String[] args) {
+		int prime_numbers[]=Util.primecheck();
+		String arr1[][]=Util.isPrimeAnagram2D(prime_numbers);
+		
+		for(int i=0;i<10;i++)
+		{
+			System.out.println();
+			for(int j=0;j<167;j++)
+			{
+//				if(array[i][j]!=null)
+//				{
+					//System.out.print(array[i][j]+" ");
+			//	}
+			}
+			
+		}
+		
+	}
+
+}

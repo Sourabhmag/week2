@@ -1,0 +1,34 @@
+package com.BridgeLabz.utility;
+
+import com.BridgeLabz.utility.Util.Node;
+
+public class Utility <T>{
+	public class Node<T> {
+		T data;
+		Node<T> next;
+
+		public Node(T d) {
+			data = d;
+			next = null;
+		}
+	}
+	Node head;
+	/**
+	 * @Purpose - Used to add node in Unordered list
+	 * @param <T>  - Generic Variable
+	 * @param data - A item which user want to insert into Unordered list
+	 */
+	public static <T> void addUnordered(T item) {
+		Node<T> newNode = new Node<T>(item);
+		if (head == null) {
+			head = newNode;
+		} else {
+			Node<T> temp = head;
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+
+			temp.next = newNode;
+		}
+	}
+}

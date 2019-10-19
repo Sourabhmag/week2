@@ -1,0 +1,19 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+
+public class PrimeNumberRange2D {
+
+	public static void main(String[] args) {
+		int array[][] = new int[10][167];
+		int prime_numbers[]=Util.primecheck();
+		for(int i=0;i<10;i++)
+		{
+			for(int j=0;j<167;j++)
+			{
+				if(Util.primecheck())
+			}
+		}
+	}
+
+}

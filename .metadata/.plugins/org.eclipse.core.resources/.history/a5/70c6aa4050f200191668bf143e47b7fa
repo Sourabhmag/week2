@@ -1,0 +1,37 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+
+public class BankingCashCounter {
+
+	public static void main(String[] args) {
+		System.out.println("Enter number of Customers");
+		long balance = 1000000000;
+		int choice,amount;
+		int customers = Util.readInt();
+		for(int i=0;i<customers;i++)
+		{
+			Util.enQueue(i);
+		}
+		while(Util.isEmpty()==false)
+		{
+			System.out.println("Enter your choice :\n1)Withdraw money\n2)Deposit Money");
+			choice = Util.readInt();
+			switch(choice)
+			{
+				case 1 : 
+				{
+					System.out.println("Enter amount to be withdraw");
+					amount = Util.readInt();
+					Util.withdraw(balance,amount);
+				}
+				case 2 : 
+				{
+					System.out.println("Enter amount to be withdraw");
+					amount = Util.readInt();
+					Util.deposite(balance,amount);
+				}
+			}
+		}
+	}
+}

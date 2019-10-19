@@ -1,0 +1,13 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+
+public class BankingCashCounter {
+
+	public static void main(String[] args) {
+		System.out.println("Enter number of people");
+		int people = Util.readInt();
+		System.out.println("Enter your choice :\n1)Withdraw money\n2)Deposit Money");
+	}
+
+}
