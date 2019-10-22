@@ -1,0 +1,47 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+import com.BridgeLabz.utility.Utility;
+
+public class CalenderUsingQueue {
+
+	public static void main(String[] args) {
+		System.out.println("Enter month");
+		int month = Util.readInt();
+		System.out.println("Enter year");
+		int year = Util.readInt();
+
+		int end_date = Util.setEndDate(month, year);
+		int day = Util.dayOfWeek(1, month, year);
+		int x=1;
+		Utility calender = new Utility();
+		for(int i=0;i<42;i++)
+		{
+			if(i==day && x<=end_date)
+			{
+				calender.enQueue(x);
+				++x;
+				++day;
+			}
+			else
+			{
+				calender.enQueue(0);
+			}
+		}
+		System.out.print("  Sun Mon Tue Wed Thu fri Sat");
+		int deQueued_value;
+		for (int i = 0; i < 6; i++) {
+			System.out.println();
+			for (int k = 0; k < 7; k++) {
+				try {
+				deQueued_value = (int) calender.deQueue();
+				if (deQueued_value!= 0) {
+					System.out.printf("%4d", deQueued_value);
+				} else {
+					System.out.print("    ");
+				}
+			}
+		}
+	}
+
+}

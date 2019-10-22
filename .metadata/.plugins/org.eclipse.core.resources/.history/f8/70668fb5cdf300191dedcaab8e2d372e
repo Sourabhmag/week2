@@ -1,0 +1,103 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+import com.BridgeLabz.utility.Utility;
+
+public class HashingFunction {
+	
+	public static void main(String[] args) throws Exception{
+		
+		int size,slot,pushed_item,poped_item,item;
+		System.out.println("Enter the size of hash table");
+		size = Util.readInt();
+		Utility table[] = new Utility[size];
+		HashingFunction object = new HashingFunction();
+	
+		
+		
+		
+		String path = "/home/user/eclipse-workspace/com.BridgeLabz/src/com/BridgeLabz/DataStructurePrograms/number.txt";
+		String []content_of_file = Util.readFile(path);
+		System.out.println(content_of_file[0].length());
+		for (int j = 0; j < content_of_file.length; j++) {
+			item=Integer.parseInt(content_of_file[j]);
+			slot = item%11;
+			
+			
+			if(table[slot].search()))
+			{
+				pushed_item=0;
+				System.out.println();
+				poped_item=(int) table[slot].pop(table[slot].index(item));
+				System.out.println(poped_item+" is poped");
+			}
+			else
+			{
+				pushed_item=item;
+				poped_item=0;
+				table[slot].addUnordered(item);
+				System.out.println(pushed_item+" is pushed");
+			}
+		}
+		
+//		for (int j = 0; j < content_of_file.length; j++) {
+//			object.addToHashTable(table,Integer.parseInt(content_of_file[j]));
+//		}
+//		System.out.println("Enetr number to be searched");
+		int searchkey = Util.readInt();
+		object.addToHashTable(table,searchkey);
+		
+		
+		//Util.display();
+		//Util.writeIntoFile(path);
+		
+	}
+	
+	
+
+	public static void addToHashTable(Utility table[],int item)
+	{
+		int pushed_item,poped_item,slot = item%11;
+		
+		
+			if(table[slot].search(item))
+			{
+				pushed_item=0;
+				System.out.println();
+				poped_item=(int) table[slot].pop(table[slot].index(item));
+				System.out.println(poped_item+" is poped");
+			}
+			else
+			{
+				pushed_item=item;
+				poped_item=0;
+				table[slot].addUnordered(item);
+				System.out.println(pushed_item+" is pushed");
+			}
+			//System.out.println((int)((Util.index(item))));
+	}
+	public static int getitem(Util table[],int item)
+	{
+		int poped_item=0,choice,slot = item%11;
+		if(table[slot].isEmpty())
+		{
+			System.out.println("Slot is empty");
+		}
+		else
+		{
+			if(table[slot].search(item))
+			{
+				System.out.println(item+" is present");
+				System.out.println("Enter your choice\n1)Push item\n2)Pop item");
+				choice = Util.readInt();
+				switch(choice)
+				{
+				case 1 : table[slot].push(item);break;
+				case 2 : poped_item=(int) table[slot].pop(Util.index(item));break;
+				}
+			}
+		}
+		return poped_item;
+	}
+
+}

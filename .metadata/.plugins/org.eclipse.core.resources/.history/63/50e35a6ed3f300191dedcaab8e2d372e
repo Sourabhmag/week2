@@ -1,0 +1,67 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+import com.BridgeLabz.utility.Utility;
+
+public class HashingFunction {
+
+	public static void main(String[] args) throws Exception {
+
+		int size, slot, pushed_item, poped_item, item;
+		int item_count=0;
+		System.out.println("Enter the size of hash table");
+		size = Util.readInt();
+		Utility table[] = new Utility[size];
+		HashingFunction object = new HashingFunction();
+
+		String path = "/home/user/eclipse-workspace/com.BridgeLabz/src/com/BridgeLabz/DataStructurePrograms/number.txt";
+		String[] content_of_file = Util.readFile(path);
+		System.out.println(content_of_file[0].length());
+
+		for (int j = 0; j < content_of_file.length; j++) {
+			object.addToHashTable(table, Integer.parseInt(content_of_file[j]));
+		}
+		System.out.println("Enetr number to be searched");
+		int searchkey = Util.readInt();
+		object.addToHashTable(table, searchkey);
+
+		for (int j = 0; j < 11; j++) {
+			System.out.println();
+			try {
+				table[j].display();
+				item_count++;
+			} catch (Exception e) {
+				System.out.print("null");
+			}
+		}
+		Utility writefile = new Utility();
+		for(int i=0;i<11;i++)
+		{
+			for(int j=0;j<table[i].size();j++)
+			{
+				writefile.addUnordered(table[i].pop());
+			}
+		}
+		 
+
+	}
+
+	public static void addToHashTable(Utility table[], int item) {
+		int pushed_item, poped_item, slot = item % 11;
+		if (table[slot] == null)
+			table[slot] = new Utility();
+
+		if (table[slot].search(item)) {
+			pushed_item = 0;
+			System.out.println();
+			poped_item = (int) table[slot].pop(table[slot].index(item));
+			System.out.println(poped_item + " is poped");
+		} else {
+			pushed_item = item;
+			poped_item = 0;
+			table[slot].addUnordered(item);
+			System.out.println(pushed_item + " is pushed");
+		}
+	}
+
+}

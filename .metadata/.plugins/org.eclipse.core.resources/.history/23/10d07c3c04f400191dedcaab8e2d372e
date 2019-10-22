@@ -1,0 +1,52 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+
+/**
+ * @author Sourabh Magdum
+ * @Purpose - Accepts number of nodes and prints how many different binary trees can be made
+ *  Date - 18/10/2019
+ */
+public class NumberOfBinarySearchTree {
+	/**
+	 * @Purpose - Used to calculate catalon number
+	 * @param number - accepts number
+	 * @return - returns catalon number
+	 */
+	public static long calculateCatalonNumber(long number)
+	{
+		long count = number;
+		while(count!=1) 
+		{
+			count--;
+			number*=count;
+		}
+		return number;
+	}
+	/**
+	 * @Purpose - Prints Number of Binary Search trees
+	 * @param nodes - accepts number of nodes
+	 */
+	public static void countBinarySearchTrees(long nodes)
+	{
+		long a = 2*nodes;
+		long b = nodes+1;
+		a=calculateCatalonNumber(a);
+		b=calculateCatalonNumber(b);
+		long c=calculateCatalonNumber(nodes);
+		long result = a/(b*c);
+		System.out.println(nodes+"\t"+result);
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter number of test cases");
+		int tests=Util.readInt();
+		System.out.println("Enter number of nodes");
+		while(tests!=0)
+		{
+			tests--;
+			countBinarySearchTrees(Util.readLong());
+		}
+	}
+
+}

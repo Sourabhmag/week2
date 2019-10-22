@@ -1,0 +1,33 @@
+package com.BridgeLabz.DataStructurePrograms;
+
+import com.BridgeLabz.utility.Util;
+import com.BridgeLabz.utility.Utility;
+
+public class CalenderUsing2Stacks {
+
+	public static void main(String[] args) {
+		System.out.println("Enter month");
+		int month = Util.readInt();
+		System.out.println("Enter year");
+		int year = Util.readInt();
+
+		int end_date = Util.setEndDate(month, year);
+		int day = Util.dayOfWeek(1, month, year);
+		int x=1;
+		Utility stack1 = new Utility();
+		for(int i=0;i<=42;i++)
+		{
+			if(i==day && x<=end_date)
+			{
+				stack1.push(x);
+				++x;
+				++day;
+			}
+			else
+			{
+				stack1.push(0);
+			}
+		}
+	}
+
+}
